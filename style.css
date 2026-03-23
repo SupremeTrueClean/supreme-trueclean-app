@@ -1,56 +1,93 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f2f2f7;
+  background: linear-gradient(180deg, #ffffff, #f2f2f7);
+  color: #111;
 }
 
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.hero h1 {
-  font-size: 32px;
-  color: #ff1a1a;
-}
-
-.primary-btn {
-  display: inline-block;
-  margin-top: 20px;
-  background: #ff1a1a;
-  color: white;
-  padding: 14px 24px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.card-container {
-  display: grid;
-  gap: 16px;
-  padding: 20px;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
+/* TOP NAV */
 .navbar {
   display: flex;
-  overflow-x: auto;
-  background: white;
+  gap: 10px;
+  padding: 14px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
   border-bottom: 1px solid #ddd;
 }
 
+/* BUTTONS */
 .navbar button {
-  flex: 1;
-  padding: 12px;
+  padding: 10px 16px;
   border: none;
+  border-radius: 12px;
   background: #ff1a1a;
   color: white;
-  margin: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.navbar button:hover {
+  transform: scale(1.05);
+}
+
+/* MAIN CONTAINER */
+.tab {
+  display: none;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* LOGIN CARD STYLE */
+.card-box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  max-width: 400px;
+  margin: auto;
+}
+
+/* INPUTS */
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
   border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+/* MAIN ACTION BUTTON */
+.action-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #ff1a1a;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* LEAD / USER CARDS */
+.item-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* SECTION HEADERS */
+h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 30px;
 }

@@ -16,14 +16,32 @@ async function signUp() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const userCred = await auth.createUserWithEmailAndPassword(email, password);
+  const firstName = prompt("First Name:");
+  const lastName = prompt("Last Name:");
+  const phone = prompt("Phone (optional):");
 
-  await db.collection("users").doc(userCred.user.uid).set({
-    email: email,
-    role: "customer"
-  });
+  const socialPlatform = prompt("Social Platform (Instagram, Facebook, etc - optional):");
+  const socialHandle = prompt("Social Handle (optional):");
 
-  routeUser("customer");
+  try {
+    const userCred = await auth.createUserWithEmailAndPassword(email, password);
+
+    await db.collection("users").doc(userCred.user.uid).set({
+      email,
+      firstName,
+      lastName,
+      phone: phone || "",
+      socialPlatform: socialPlatform || "",
+      socialHandle: socialHandle || "",
+      role: "customer",
+      createdAt: new Date()
+    });
+
+    routeUser("customer");
+
+  } catch (error) {
+    alert(error.message);
+  }
 }
 
 async function login() {

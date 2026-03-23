@@ -1,1 +1,52 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f5f7;
+}
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  color: #ff1a1a;
+}
+
+.btn {
+  background: #ff1a1a;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: white;
+}
+
+.tab {
+  display: none;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar button {
+  padding: 10px;
+  border: none;
+  background: #ff1a1a;
+  color: white;
+  border-radius: 10px;
+}

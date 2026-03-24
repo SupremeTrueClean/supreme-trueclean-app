@@ -6,43 +6,71 @@
 </head>
 <body>
 
-<header class="topbar">
-  <h1>Supreme True Clean</h1>
-  <a href="app.html" class="btn">Login</a>
+<!-- NAVBAR -->
+<header class="nav">
+  <div class="logo">Supreme True Clean</div>
+  <div>
+    <a href="app.html" class="btn">Login</a>
+  </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <h1>Premium Cleaning Services</h1>
-  <p>Book instantly. Track everything. Supreme quality.</p>
+  <div class="container">
+    <h1>Cleaning Made Simple</h1>
+    <p>Book, manage, and track your services instantly.</p>
+    <a href="app.html" class="btn-primary">Get Started</a>
+  </div>
 </section>
 
+<!-- SERVICES -->
 <section class="section">
-  <h2>Services</h2>
+  <div class="container">
+    <h2>Our Services</h2>
 
-  <div class="card">
-    <h3>Residential Cleaning</h3>
-    <input id="sqft" placeholder="Enter Sq Ft">
-    <button onclick="calcSqFt()">Calculate</button>
-    <p id="sqftResult"></p>
+    <div class="grid">
+      <div class="card">
+        <h3>Residential Cleaning</h3>
+        <p>Professional home cleaning services.</p>
+      </div>
+
+      <div class="card">
+        <h3>Deep Cleaning</h3>
+        <p>Detailed, high-quality deep cleans.</p>
+      </div>
+
+      <div class="card">
+        <h3>Trash Bin Cleaning</h3>
+        <p>Per-bin cleaning services.</p>
+      </div>
+
+      <div class="card">
+        <h3>Subscriptions</h3>
+        <p>Monthly recurring service plans.</p>
+      </div>
+    </div>
   </div>
-
-  <div class="card">
-    <h3>Trash Bin Cleaning</h3>
-    <input id="bins" placeholder="Number of bins">
-    <button onclick="calcBins()">Calculate</button>
-    <p id="binResult"></p>
-  </div>
-
-  <div class="card">
-    <h3>Flat Services</h3>
-    <select id="flatService">
-      <option value="100">Basic Cleaning - $100</option>
-      <option value="200">Deep Cleaning - $200</option>
-    </select>
-  </div>
-
-  <button onclick="bookService()" class="btn-primary">Book Service</button>
 </section>
+
+<!-- BOOKING -->
+<section class="section alt">
+  <div class="container">
+    <h2>Book a Service</h2>
+
+    <div class="card form-card">
+      <input id="name" placeholder="Full Name">
+      <input id="phone" placeholder="Phone Number">
+      <input id="sqft" placeholder="Square Footage">
+
+      <button onclick="bookService()" class="btn-primary">Book Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 Supreme True Clean</p>
+</footer>
 
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -50,29 +78,15 @@
 <script src="assets/firebase.js"></script>
 
 <script>
-function calcSqFt(){
-  const sqft = document.getElementById("sqft").value;
-  const price = sqft * 0.15;
-  document.getElementById("sqftResult").innerText = "$" + price;
-}
-
-function calcBins(){
-  const bins = document.getElementById("bins").value;
-  const price = bins * 25;
-  document.getElementById("binResult").innerText = "$" + price;
-}
-
 async function bookService(){
-  const data = {
-    sqft: document.getElementById("sqft").value,
-    bins: document.getElementById("bins").value,
-    service: document.getElementById("flatService").value,
+  const name = document.getElementById("name").value;
+
+  await firebase.firestore().collection("appointments").add({
+    name,
     createdAt: new Date()
-  };
+  });
 
-  await firebase.firestore().collection("appointments").add(data);
-
-  alert("Booked!");
+  alert("Booked successfully!");
 }
 </script>
 

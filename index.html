@@ -2,45 +2,79 @@
 <html>
 <head>
   <title>Supreme True Clean</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<div class="hero">
+<header class="topbar">
   <h1>Supreme True Clean</h1>
-  <p>Manage your entire business from one powerful platform.</p>
+  <a href="app.html" class="btn">Login</a>
+</header>
 
-  <a href="app.html" class="primary-btn">Enter Platform</a>
-</div>
+<section class="hero">
+  <h1>Premium Cleaning Services</h1>
+  <p>Book instantly. Track everything. Supreme quality.</p>
+</section>
 
-<div class="card-container">
+<section class="section">
+  <h2>Services</h2>
 
   <div class="card">
-    <h2>👑 Owner</h2>
-    <p>Full system access including editor and financial tools.</p>
+    <h3>Residential Cleaning</h3>
+    <input id="sqft" placeholder="Enter Sq Ft">
+    <button onclick="calcSqFt()">Calculate</button>
+    <p id="sqftResult"></p>
   </div>
 
   <div class="card">
-    <h2>🛠 Admin</h2>
-    <p>Manage users, roles, and system settings.</p>
+    <h3>Trash Bin Cleaning</h3>
+    <input id="bins" placeholder="Number of bins">
+    <button onclick="calcBins()">Calculate</button>
+    <p id="binResult"></p>
   </div>
 
   <div class="card">
-    <h2>📣 Sales</h2>
-    <p>Manage leads, outreach, and pipeline tracking.</p>
+    <h3>Flat Services</h3>
+    <select id="flatService">
+      <option value="100">Basic Cleaning - $100</option>
+      <option value="200">Deep Cleaning - $200</option>
+    </select>
   </div>
 
-  <div class="card">
-    <h2>🔧 Technician</h2>
-    <p>View assigned jobs and update statuses.</p>
-  </div>
+  <button onclick="bookService()" class="btn-primary">Book Service</button>
+</section>
 
-  <div class="card">
-    <h2>👤 Customer</h2>
-    <p>View services, orders, and history.</p>
-  </div>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-</div>
+<script src="assets/firebase.js"></script>
+
+<script>
+function calcSqFt(){
+  const sqft = document.getElementById("sqft").value;
+  const price = sqft * 0.15;
+  document.getElementById("sqftResult").innerText = "$" + price;
+}
+
+function calcBins(){
+  const bins = document.getElementById("bins").value;
+  const price = bins * 25;
+  document.getElementById("binResult").innerText = "$" + price;
+}
+
+async function bookService(){
+  const data = {
+    sqft: document.getElementById("sqft").value,
+    bins: document.getElementById("bins").value,
+    service: document.getElementById("flatService").value,
+    createdAt: new Date()
+  };
+
+  await firebase.firestore().collection("appointments").add(data);
+
+  alert("Booked!");
+}
+</script>
 
 </body>
 </html>

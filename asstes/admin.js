@@ -1,16 +1,17 @@
-// ADMIN SYSTEM
-
 async function loadUsers(){
   const snapshot = await db.collection("users").get();
 
-  let html = "<h2>User Management</h2>";
+  let html = `
+    <div class="header">Admin Panel</div>
+    <div class="dashboard">
+  `;
 
   snapshot.forEach(doc=>{
     const user = doc.data();
 
     html += `
-      <div class="stat-card">
-        <strong>${user.email}</strong><br>
+      <div class="card">
+        <strong>${user.email}</strong>
 
         <select onchange="updateRole('${doc.id}', this.value)">
           <option value="customer">Customer</option>
@@ -23,9 +24,7 @@ async function loadUsers(){
     `;
   });
 
-  document.getElementById("app").innerHTML = html;
-}
+  html += "</div>";
 
-async function updateRole(uid, role){
-  await db.collection("users").doc(uid).update({ role });
+  document.getElementById("app").innerHTML = html;
 }

@@ -1,94 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Supreme True Clean</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="stc-app">
+  <div class="stc-wrapper">
+    <header class="stc-header">
+      <div class="stc-logo">Supreme True Clean!</div>
+      <p class="stc-subtitle">Select your role to continue</p>
+    </header>
 
-<!-- NAVBAR -->
-<header class="nav">
-  <div class="logo">Supreme True Clean</div>
-  <div>
-    <a href="app.html" class="btn">Login</a>
+    <main class="stc-roles">
+      <button class="stc-role-card" data-role="admin">
+        <div class="stc-role-icon">🛠️</div>
+        <div class="stc-role-text">
+          <h2>Admin</h2>
+          <p>Dashboard &amp; management</p>
+        </div>
+      </button>
+
+      <button class="stc-role-card" data-role="customer">
+        <div class="stc-role-icon">🧼</div>
+        <div class="stc-role-text">
+          <h2>Customer</h2>
+          <p>Services &amp; subscriptions</p>
+        </div>
+      </button>
+
+      <button class="stc-role-card" data-role="cleaner">
+        <div class="stc-role-icon">🧹</div>
+        <div class="stc-role-text">
+          <h2>Cleaner</h2>
+          <p>Jobs &amp; operations</p>
+        </div>
+      </button>
+
+      <button class="stc-role-card" data-role="leadgen">
+        <div class="stc-role-icon">📣</div>
+        <div class="stc-role-text">
+          <h2>Lead Gen</h2>
+          <p>Leads &amp; outreach</p>
+        </div>
+      </button>
+    </main>
+
+    <footer class="stc-footer">
+      <span>v1.0 - Web App</span>
+    </footer>
   </div>
-</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <h1>Cleaning Made Simple</h1>
-    <p>Book, manage, and track your services instantly.</p>
-    <a href="app.html" class="btn-primary">Get Started</a>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="section">
-  <div class="container">
-    <h2>Our Services</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Residential Cleaning</h3>
-        <p>Professional home cleaning services.</p>
-      </div>
-
-      <div class="card">
-        <h3>Deep Cleaning</h3>
-        <p>Detailed, high-quality deep cleans.</p>
-      </div>
-
-      <div class="card">
-        <h3>Trash Bin Cleaning</h3>
-        <p>Per-bin cleaning services.</p>
-      </div>
-
-      <div class="card">
-        <h3>Subscriptions</h3>
-        <p>Monthly recurring service plans.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BOOKING -->
-<section class="section alt">
-  <div class="container">
-    <h2>Book a Service</h2>
-
-    <div class="card form-card">
-      <input id="name" placeholder="Full Name">
-      <input id="phone" placeholder="Phone Number">
-      <input id="sqft" placeholder="Square Footage">
-
-      <button onclick="bookService()" class="btn-primary">Book Now</button>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <p>© 2026 Supreme True Clean</p>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-
-<script src="assets/firebase.js"></script>
-
-<script>
-async function bookService(){
-  const name = document.getElementById("name").value;
-
-  await firebase.firestore().collection("appointments").add({
-    name,
-    createdAt: new Date()
-  });
-
-  alert("Booked successfully!");
-}
-</script>
-
+  <script src="app.js"></script>
 </body>
 </html>

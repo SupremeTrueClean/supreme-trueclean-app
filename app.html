@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STC App</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- MAIN APP CONTAINER -->
+<div id="app"></div>
+
+<!-- BOTTOM NAV (LIKE YOUR SCREENSHOT STYLE) -->
+<div class="bottom-nav">
+  <button onclick="loadDashboard()">🏠</button>
+  <button onclick="loadLeads()">📊</button>
+  <button onclick="loadJobs()">🛠</button>
+  <button onclick="loadUsers()">👑</button>
+</div>
+
+<!-- 🔥 WEB3 (WALLET SUPPORT) -->
+<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
+<!-- 🔥 FIREBASE (REQUIRED) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<!-- 🔥 YOUR FILES (ORDER MATTERS) -->
+<script src="assets/firebase.js"></script>
+<script src="assets/auth.js"></script>
+<script src="assets/web3.js"></script>
+<script src="assets/leads.js"></script>
+<script src="assets/admin.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
+</html>

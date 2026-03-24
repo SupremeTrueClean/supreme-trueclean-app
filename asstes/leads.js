@@ -1,34 +1,18 @@
-// LEADS SYSTEM
-
-async function addLead(){
-  const name = prompt("Lead Name");
-  const phone = prompt("Phone");
-  const address = prompt("Address");
-
-  await db.collection("leads").add({
-    name,
-    phone,
-    address,
-    status: "new",
-    createdAt: new Date(),
-    history: []
-  });
-
-  loadLeads();
-}
-
 async function loadLeads(){
   const snapshot = await db.collection("leads").get();
 
-  let html = `<h2>Leads</h2>`;
+  let html = `
+    <div class="header">Leads</div>
+    <div class="dashboard">
+  `;
 
   snapshot.forEach(doc=>{
     const lead = doc.data();
 
     html += `
-      <div class="stat-card">
+      <div class="card">
         <strong>${lead.name}</strong><br>
-        ${lead.phone}<br>
+        ${lead.phone || ""}<br>
 
         <select onchange="updateLeadStatus('${doc.id}', this.value)">
           <option value="new">🟢 New</option>
@@ -41,11 +25,7 @@ async function loadLeads(){
     `;
   });
 
-  document.getElementById("app").innerHTML = html;
-}
+  html += "</div>";
 
-async function updateLeadStatus(id, status){
-  await db.collection("leads").doc(id).update({
-    status
-  });
+  document.getElementById("app").innerHTML = html;
 }

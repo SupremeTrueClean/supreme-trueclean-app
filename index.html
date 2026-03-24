@@ -1,103 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
   <title>Supreme True Clean</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ✅ CORRECT CSS PATH -->
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body class="stc-app">
+<body>
 
-  <div class="stc-wrapper">
+<header class="nav">
+  <h2>Supreme True Clean</h2>
+  <a href="login.html" class="btn">Login</a>
+</header>
 
-    <!-- HEADER -->
-    <header class="stc-header">
-      <div class="stc-logo">Supreme True Clean!</div>
-      <p class="stc-subtitle">Select your role to continue</p>
-    </header>
+<section class="hero">
+  <h1>Cleaning Made Simple</h1>
+  <p>Book, manage, and track services instantly</p>
+  <a href="login.html" class="btn">Get Started</a>
+</section>
 
-    <!-- ROLES -->
-    <main class="stc-roles">
+<section class="section">
+  <h2>Services</h2>
 
-      <button class="stc-role-card" onclick="startSignup('admin')">
-        <div class="stc-role-icon">🛠️</div>
-        <div>
-          <h2>Admin</h2>
-          <p>Dashboard & management</p>
-        </div>
-      </button>
-
-      <button class="stc-role-card" onclick="startSignup('customer')">
-        <div class="stc-role-icon">🧼</div>
-        <div>
-          <h2>Customer</h2>
-          <p>Services & subscriptions</p>
-        </div>
-      </button>
-
-      <button class="stc-role-card" onclick="startSignup('technician')">
-        <div class="stc-role-icon">🧹</div>
-        <div>
-          <h2>Technician</h2>
-          <p>Jobs & operations</p>
-        </div>
-      </button>
-
-      <button class="stc-role-card" onclick="startSignup('sales')">
-        <div class="stc-role-icon">📣</div>
-        <div>
-          <h2>Sales Rep</h2>
-          <p>Leads & outreach</p>
-        </div>
-      </button>
-
-      <button class="stc-role-card" onclick="startSignup('owner')">
-        <div class="stc-role-icon">👑</div>
-        <div>
-          <h2>Owner</h2>
-          <p>Full access</p>
-        </div>
-      </button>
-
-    </main>
-
-    <!-- LOGIN BUTTON -->
-    <div style="padding:20px;">
-      <button class="stc-login-btn" onclick="login()">Login</button>
-    </div>
-
-    <footer class="stc-footer">
-      <span>v1.0 - Web App</span>
-    </footer>
-
+  <div class="grid">
+    <div class="card">House Washing</div>
+    <div class="card">Driveways</div>
+    <div class="card">Trash Bin Cleaning</div>
+    <div class="card">Subscriptions</div>
   </div>
-
-  <!-- 🔥 FIREBASE -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-
-  <!-- 🔥 WEB3 -->
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-
-  <!-- 🔥 YOUR SYSTEM -->
-  <script src="assets/firebase.js"></script>
-  <script src="assets/auth.js"></script>
-  <script src="assets/web3.js"></script>
-  <script src="assets/app.js"></script>
-  <script src="assets/leads.js"></script>
-  <script src="assets/admin.js"></script>
-
-  <!-- 🔥 ROLE SIGNUP HANDLER -->
-  <script>
-    function startSignup(role){
-      localStorage.setItem("selectedRole", role);
-      signUp(role);
-    }
-  </script>
+</section>
 
 </body>
 </html>

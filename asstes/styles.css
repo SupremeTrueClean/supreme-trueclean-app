@@ -1,29 +1,142 @@
-body {
+/* RESET */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(180deg,#ff1a1a,#cc0000);
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* APP CONTAINER */
-#app {
+/* BODY */
+body.stc-app {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(180deg, #ff1a1a, #cc0000);
+  color: white;
+  min-height: 100vh;
+}
+
+/* WRAPPER */
+.stc-wrapper {
+  max-width: 500px;
+  margin: auto;
   padding: 20px;
 }
 
 /* HEADER */
-.header {
+.stc-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.stc-logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stc-subtitle {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* ROLE SECTION */
+.stc-roles {
+  margin-top: 10px;
+}
+
+/* ROLE CARD */
+.stc-role-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px;
+  margin-bottom: 12px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.stc-role-card:active {
+  transform: scale(0.98);
+}
+
+/* ROLE CONTENT */
+.stc-role-card h2 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.stc-role-card p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ICON */
+.stc-role-icon {
   font-size: 26px;
+}
+
+/* LOGIN BUTTON */
+.stc-login-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  background: white;
+  color: #ff1a1a;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.stc-login-btn:active {
+  transform: scale(0.98);
+}
+
+/* FOOTER */
+.stc-footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* DASHBOARD (FOR APP.HTML) */
+.header {
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-/* SUBTEXT */
 .subtext {
   opacity: 0.8;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-/* CARD */
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* STAT CARDS */
+.stat {
+  background: white;
+  color: black;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* GENERAL CARD */
 .card {
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(10px);
@@ -32,52 +145,34 @@ body {
   margin-bottom: 15px;
 }
 
-/* ROLE BUTTONS */
-.role-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.15);
-  margin-bottom: 12px;
-  font-size: 18px;
-}
-
-/* ICON */
-.icon {
-  font-size: 26px;
-}
-
-/* DASH GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-/* STAT CARD */
-.stat {
-  background: white;
-  color: black;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-}
-
-/* BUTTON */
+/* BUTTON (GLOBAL) */
 .btn {
   width: 100%;
-  padding: 16px;
+  padding: 14px;
   border-radius: 14px;
   background: white;
   color: #ff1a1a;
   font-weight: bold;
   border: none;
   margin-top: 10px;
+  cursor: pointer;
 }
 
-/* NAV */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* BOTTOM NAV */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -93,5 +188,5 @@ body {
 .bottom-nav button {
   background: none;
   border: none;
-  font-size: 22px;
+  font-size: 20px;
 }
